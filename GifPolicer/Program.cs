@@ -35,7 +35,7 @@ namespace GifPolice {
         #region Private Methods
 
         private static async void BotOnMessageReceived(object sender, MessageEventArgs messageEventArgs) {
-            if ((messageEventArgs.Message.Type == MessageType.Photo || messageEventArgs.Message.Type == MessageType.Sticker || messageEventArgs.Message.Type == MessageType.Document) && messageEventArgs.Message.Date >= DateTime.UtcNow.AddMinutes(-NumberofMinutes)) {
+            if ((messageEventArgs.Message.Type == MessageType.Photo || messageEventArgs.Message.Type == MessageType.Sticker || messageEventArgs.Message.Type == MessageType.Document || messageEventArgs.Message.Text.Contains("https://cdn.discordapp.com")) && messageEventArgs.Message.Date >= DateTime.UtcNow.AddMinutes(-NumberofMinutes)) {
                 try {
                     var chatId = messageEventArgs.Message.Chat.Id;
                     var userId = messageEventArgs.Message.From.Id;
